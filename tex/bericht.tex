@@ -26,7 +26,7 @@ Die Berechnung der Position basiert auf der Formel $ x = \iint \frac{5}{7} \cdot
 
 \subsubsection{Jumping Reference}
 Eine weitere Aufgabe war es, eine Jumping Reference einzubauen, die einen Referenzwert aus einem gegebenen Intervall für zehn Sekunden hält und dann auf einen anderen Wert springt. Dabei soll immer zwischen positiven und negativen Werten gewechselt werden. \\
-Unsere Jumping Reference wählt immer einen vor drei vorgegebenen Werten, wobei jeder zweite gewählte Wert negativ ist. \\
+Unsere Jumping Reference wählt immer einen von drei vorgegebenen Werten, wobei jeder zweite gewählte Wert negativ ist. \\
 \begin{center}
 	\begin{minipage}{\linewidth}
 	\centering
@@ -34,8 +34,8 @@ Unsere Jumping Reference wählt immer einen vor drei vorgegebenen Werten, wobei 
 	\captionof{figure}{Jumping Reference und statischer Wert}
 	\end{minipage}
 \end{center}
-
-In unserer Simulation ist es möglich zwischen einem fest vorgegebenen Sollwert und der Jumping Reference zu wechseln.
+\ \\
+In unserer Simulation ist es möglich zwischen einem fest vorgegebenen Sollwert und der Jumping Reference mittels des Switchs zu wechseln.
 
 \subsection{Ergebnis}
 
@@ -46,7 +46,7 @@ In unserer Simulation ist es möglich zwischen einem fest vorgegebenen Sollwert 
 	\captionof{figure}{Simulation 1}
 	\end{minipage}
 \end{center}
-In unserem ersten Versuch haben wir den Referenzwert auf \textit{0} gesetzt und den Initialwert des Balls auf \textit{1}. Man sieht das der Ball nach ungefähr \textit{7,5} Sekunden an der gewünschten Position liegen bleibt. Der PID-Regler ist so eingestellt, dass er einmal kurz über schwingt und sich dann der Soll-Position nähert. Das Überschwingen wird durch den hohen P-Anteil erklärt.\\ \\
+In unserem ersten Versuch haben wir den Referenzwert auf \textit{0} gesetzt und den Initialwert des Balls auf \textit{1}. Man sieht, dass der Ball nach ungefähr \textit{7,5} Sekunden an der gewünschten Position liegen bleibt. Der PID-Regler ist so eingestellt, dass er einmal kurz über schwingt und sich dann der Soll-Position nähert. Das Überschwingen wird durch den hohen P-Anteil erklärt.\\ \\
 
 \begin{center}
 	\begin{minipage}{\linewidth}
