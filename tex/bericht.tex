@@ -7,6 +7,13 @@ Ziel der Übung ist es mit Hilfe von Xcos eine Simulation des Balles auf einer g
 Zuerst haben wir ein Grundgerüst der Simulation basierend auf \textit{Abbildung 1} aus der Aufgabenstellung gebaut. Wir haben uns dazu entschieden nicht nur das BOIP-Modell in einen einzelnen Super-Block zu packen, sondern auch den PID-Regler. Die gesamte Simulation kann in vier Teile zerlegt werden (BOIP-Modell, PID-Regler, Berechnung der Position, Jumping Reference). Diese werden im Folgenden beschrieben.
 
 \subsubsection{BOIP-Modell}
+\begin{center}
+	\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[scale=0.3]{images/figure1.png}
+	\captionof{figure}{Simulation 2}
+	\end{minipage}
+\end{center}
 Im Super-Block für das BOIP-Modell haben wir das Skript aus \textit{Labor 1} mit Hilfe von Blöcken nachgebaut. Neben Konstanten und mathematischen Operations-Blöcken verwenden wir zur Simulation auch Bedingungen und Begrenzungen. Der Eingang des Super-Blocks ist $\beta$, der Ausgang $\alpha$. \\
 Das Eingangssignal wird mit einem Saturation-Block auf den für uns relevanten Bereich $\beta = \pm 40 ^\circ$ begrenzt. Anschließend werden wie in \textit{Labor 1} die Werte für $\gamma_1$, $c_1$, $\beta_2$ und $\alpha_1$ berechnet. Um abschließend $\alpha$ zu berechnen muss $\beta$ mit $\gamma$ verglichen werden. Wenn $\beta \geq \gamma$ ist, wird $\alpha_1$ positiv, im Fall $\beta < \gamma$ negativ eingerechnet. Diesen Vergleich haben wir mit einem If-Then-Else-Block und einem Selector umgesetzt. Somit erhalten wir letztendlich den Wert $\alpha$ als Ausgabe des Super-Blocks.
 
@@ -48,7 +55,7 @@ In unserem ersten Versuch haben wir den Referenzwert auf \textit{0} gesetzt und 
 	\captionof{figure}{Simulation 2}
 	\end{minipage}
 \end{center}
-In \textit{Abbildung 3} ist der Referenzwert auf \textit{0} gesetzt, der Initialwert auf \textit{-1}. Hier nähert sich der Ball langsam dem eingestellten Sollwert ohne ein Überschwingen und erreicht diesen nach ungefähr \textit{8,5} Sekunden. \\ \\
+In \textit{Abbildung 4} ist der Referenzwert auf \textit{0} gesetzt, der Initialwert auf \textit{-1}. Hier nähert sich der Ball langsam dem eingestellten Sollwert ohne ein Überschwingen und erreicht diesen nach ungefähr \textit{8,5} Sekunden. \\ \\
 
 \begin{center}
 	\begin{minipage}{\linewidth}
@@ -57,7 +64,7 @@ In \textit{Abbildung 3} ist der Referenzwert auf \textit{0} gesetzt, der Initial
 	\captionof{figure}{Simulation 3}
 	\end{minipage}
 \end{center}
-In \textit{Abbildung 4} ist unser letzter Versuch dargestellt. Der Referenzwert wird alle zehn Sekunden auf einen von drei vorgegebenen Werten gesetzt. Außerdem ist jeder zweite Wert negativ.\\
+In \textit{Abbildung 5} ist unser letzter Versuch dargestellt. Der Referenzwert wird alle zehn Sekunden auf einen von drei vorgegebenen Werten gesetzt. Außerdem ist jeder zweite Wert negativ.\\
 Man sieht, dass der Ball allerdings nicht bei jedem Wechsel schnell genug an der gewünschten Stelle liegen bleibt. Wir haben lange versucht dieses Problem durch Veränderungen am PID-Regler zu lösen, dies ist uns jedoch leider nicht gelungen.
 
 
