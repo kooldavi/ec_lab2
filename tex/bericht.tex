@@ -1,21 +1,21 @@
 \section{Bericht}
 
 \subsection{Einleitung}
-Ziel der Übung ist es mit Hilfe von Scilab bzw. Xcos eine Simulation des Balles auf einer geneigten Fläche mit Hilfe der Lösungen aus der ersten Übung aufzubauen.
+Ziel der Übung ist es mit Hilfe von Xcos eine Simulation des Balles auf einer geneigten Fläche mit Hilfe der Lösungen aus der ersten Übung aufzubauen. Dazu müssen neben dem unserem Script aus Übung 1 auch auf die Geschwindigkeit des Balles sowie der Regler und Filter  berücksichtigt werden. Des weiteren ist es Teil der Übung, eine Jumping Reference mit einzubauen um jede 10 Sekunden einen anderen Referenzwert für den Ball für die Berechnung zu benutzen.
 
 \subsection{Durchführung}
-Zuerst haben wir ein Grundgerüst der Simulation basierend auf Abbildung 1 aus der Aufgabenstellung gebaut.
+Zuerst haben wir ein Grundgerüst der Simulation basierend auf Abbildung 1 aus der Aufgabenstellung gebaut. Wir haben uns dazu entschieden nicht nur den das BOIP-Modell in einen einzelnen Superblock zu packen, sondern auch den PID-Regler und Tiefpass Filter.
 
 \subsubsection{BOIP-Modell}
-Im Superblock für das BOIP-Modell haben wir das Skript aus Übung 1 mit Hilfe von Schaltblöcken nachgebaut. Neben Konstanten, Blöcken für Multiplikation, Addition und Trigonomischen Funktionen verwendeten wir auch einen Saturationsblock zu Beginn der Schaltung da wir den Maximal- bzw. Minimalwinkel auf +40$^\circ$ / -40$^\circ$ Grad limitieren konnten. Der Grund dafür ist die Tatsache das egal wie groß oder klein der Winkel ist wir immer das Ziel haben diesen auf 0$^\circ$ zu stellen. Deswegen ist es irrelevant ob ein Winkel 40$^\circ$ groß ist oder 140$^\circ$. \\
-Desweiteren nutzen wir einen IFTHEL-Block sowie einen Selektor um zu entscheiden ob $\beta$ größer als $\gamma$ ist und somit auswählen zu können ob $\alpha$ negativ oder positiv ausgegeben werden muss. \\
-Am Ende haben wir die Formel $ - \delta - \gamme + \alpha_1 + \beta_2 = \alpha $ verwendet um $\alpha$ als Resultat des Superblocks auszugeben.
+Im Superblock für das BOIP-Modell haben wir das Skript aus Übung 1 mit Hilfe von Schaltblöcken nachgebaut. Neben Konstanten, Blöcken für Multiplikation, Addition und trigonometrischen Funktionen verwendeten wir auch einen Saturations-Block zu Beginn der Schaltung da wir den Maximal- bzw. Minimalwinkel auf +40$^\circ$ / -40$^\circ$ Grad limitieren konnten. Der Grund dafür ist die Tatsache das egal wie groß oder klein der Winkel ist wir immer das Ziel haben diesen auf 0$^\circ$ zu stellen. Deswegen ist es irrelevant ob ein Winkel 40$^\circ$ groß ist oder 140$^\circ$. \\
+Des weiteren nutzen wir einen IFTHEL-Block sowie einen Selector um zu entscheiden ob $\beta$ größer als $\gamma$ ist und somit auswählen zu können ob $\alpha$ negativ oder positiv ausgegeben werden muss. \\
+Am Ende haben wir die Formel $ - \delta - \gamma + \alpha_1 + \beta_2 = \alpha $ verwendet um $\alpha$ als Resultat des Superblocks auszugeben.
 
 \subsubsection{PID-Regler und Tiefpass Filter}
 Der PID-Regler 
 
 \subsubsection{Berechnung der Position}
-Die Berechnung der Position basiert auf der Formel $ x = \frac{5}{7} \cdot g \cdot sin(\alpha) \cdot \iint d t^2 $. Diese haben wir mit Hilfe von einer Konstanten, einem Mulitplikations-Block, 2 Integrations-Blöcken sowie einem Sinus-Block dargestellt. Den Wert von $\alpha $ nehmen wir direkt aus dem Ausgang dem BOIP-Superblocks.
+Die Berechnung der Position basiert auf der Formel $ x = \frac{5}{7} \cdot g \cdot sin(\alpha) \cdot \iint d t^2 $. Diese haben wir mit Hilfe von einer Konstanten, einem Mulitplikations-Block, 2 Integrations-Blöcken sowie einem Sinus-Block dargestellt. $\alpha $ nehmen wir direkt aus dem Ausgang dem BOIP-Superblocks.
 
 \subsubsection{Geschwindigkeitsregelung}
 
