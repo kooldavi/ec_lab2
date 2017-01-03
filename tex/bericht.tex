@@ -3,14 +3,9 @@
 \subsection{Einleitung}
 Ziel der Übung ist es mit Hilfe von Scilab bzw. Xcos eine Simulation des Balles auf einer geneigten Fläche mit Hilfe der Lösungen aus der ersten Übung aufzubauen.
 
-\subsection{Durchführung}\begin{center}
-%	\begin{minipage}{\linewidth}
-%	\centering
-%	\includegraphics[scale=0.3]{images/figure1.png}
-%	\captionof{figure}{Model of inclined plane}
-%	\end{minipage}
-\end{center}
-Zuerst haben wir ein Grundgerüst der Simulation basierend auf Abbildung 1 aus der Aufgabenstellung gebaut. Im Superblock für das BOIP-Modell ...
+\subsection{Durchführung}
+Zuerst haben wir ein Grundgerüst der Simulation basierend auf Abbildung 1 aus der Aufgabenstellung gebaut. Im Superblock für das BOIP-Modell haben wir das Skript aus Übung 1 mit Hilfe von Schaltblöcken nachgebaut. Neben Konstanten, Blöcken für Multiplikation, Addition und Trigonomischen Funktionen verwendeten wir auch einen Saturationsblock zu Beginn der Schaltung da wir den Maximal- bzw. Minimalwinkel auf +40$^\circ$ / -40$^\circ$ Grad limitieren konnten. Der Grund dafür ist die Tatsache das egal wie groß oder klein der Winkel ist wir immer das Ziel haben diesen auf 0$^\circ$ zu stellen. Deswegen ist es irrelevant ob ein Winkel 40$^\circ$ groß ist oder 140$^\circ$.
+Desweiteren nutzen wir einen IFTHEL-Block sowie einen Selektor um zu entscheiden ob $\beta$ größer als $\gamma$ ist und somit auswählen zu können ob $\alpha$ negativ oder positiv ausgegeben werden muss.
 
 \subsection{Besonderheiten}
 text
